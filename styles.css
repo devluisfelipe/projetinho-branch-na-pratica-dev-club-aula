@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    color: #5D5D7D;
+}
+
+.wrapper {
+    /*aqui vai ocupar toda a tela*/
+    width: 100vw;
+    height: 100vh;
+}
+
+.container-left {
+    display: inline-block;
+    width: 60%;
+    margin-top: 25%;
+    padding-left: 136px;
+}
+
+.container-right {
+    display: inline-block;
+    background: #5D5D7D;
+    /*aplica a cor mais o opacity sem interferir em imagem ou texto*/
+    background-color: rgba(93, 93, 125, 0.16);
+    /*ocupa a altura tela inteira*/
+    height: 1000px;
+    /*ao aplicar 40 % aqui e 60 % no container left a imagem desce, por isso aplica-se o position para posicionar */
+    width: 40%;
+    /*position absolute: se a tela mecher ele meche junto*/
+    position: absolute;
+}
+
+img {
+    /*vai posicionar a imagem relativo ao lugar inicial que a imagem está*/
+    /*para usar o relative, precisa aplicar, configurações como: top, right, botton, left*/
+    position: relative;
+    /*25% da section*/
+    top: 15%;
+    right: 130px;
+}
+
+h1 {
+    font-size: 70px;
+    line-height: 80px;
+    width: 368px;
+}
+
+p {
+    font-size: 28px;
+    line-height: 48px;
+    opacity: 0.6;
+    /*dois valor, 15 encima e embaixo, 0 para direita e esquerda*/
+    margin: 15px 0;
+    width: 540px;
+}
+
+button {
+    width: 269px;
+    height: 62px;
+    background: #9499EA;
+    filter: drop-shadow(0px 10px 24px rgba(148, 153, 234, 0.10));
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:active {
+    opacity: 0.5;
+}
+
+a {
+    color: #5D5D7D;
+    font-size: 28px;
+    line-height: 41px;
+    margin-right: 41px;
+    cursor: pointer;
+}
+
+a:nth-child(2) {
+    opacity: 0.4;
+}
+
+a:hover {
+    opacity: 0.4;
+}
+
+a:active {
+    opacity: 0.8;
+}
+
+header {
+    margin: 24px 0 0 57px;
+}
+
+/*MOBILE-FIRST
+Muita gente gosta de desenvolver primeiro mobile depois desktop;
+Mas devemos ver a prioridade, qual que vai ser mais utilizado ?
+Se for mais utilizado no computador, focar primeiro no desenvolvimento para desktop, depois adaptar para celular e assim vice-versa.
+****Não existe uma regra geral****
+**Empresas grandes faxem três estilos, computador, tablet e celular
+*/
+
+/*a partir de 900px ele vai mudar*/
+@media screen and (max-width: 900px) {
+
+    .container-left {
+        /*vai ocupar toda largura da tela*/
+        width: 100%;
+        /*vai ocupar metade da tela em altura*/
+        height: 50%;
+        /*zerar*/
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-right {
+        /*não é pra ficar mais um do lado do outro mas sim um abaixo do outro*/
+        display: block;
+        /* se adapta de acorodo com o tamanho que ele tem disponível*/
+        height: auto;
+        /*ocupa a largura da tela toda*/
+        width: 100%;
+        /*não será mais absolute, o static ignora o top e o right, left e botom*/
+        position: static;
+        /**/
+        padding: 40px;
+    }
+
+    img {
+        position: static;
+        /*o máximo que a imagem vai crescer é 90 %*/
+        max-width: 90%;
+    }
+
+    header {
+        /*não aparece o menu*/
+        display: none;
+    }
+
+    /*muda as configurações de fonte de desktop para mobile*/
+    h1 {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 52px;
+        /*vai se adaptar a tela*/
+        width: auto;
+        margin: 58px 50px 0 50px;
+    }
+
+    p {
+        width: auto;
+        margin: 15px 40px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    button {
+        /* para alinhar um botão ao centro define a margin dos lados como auto, mas para funcionar deve configurar como display:block*/
+        /*margin top e botton é zero ||| margin left e right são automáticos*/
+        margin: 0 auto;
+        display: block;
+    }
+}
